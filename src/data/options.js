@@ -80,8 +80,6 @@ export const CLOTHING_CATEGORIES = {
                 items: [
                     { id: "long_sleeve_crop_top", label: "Long Sleeve Crop Top", value: "Long Sleeve Crop Top", description: "Top com manga longa" },
                     { id: "tank_crop_top", label: "Tank Crop Top", value: "Tank Crop Top", description: "Top simples com alça" },
-                    { id: "off_shoulder_crop", label: "Ombro a Ombro Cropped", value: "top cropped ombro a ombro" },
-                    { id: "wrap_crop_top", label: "Transpassado Cropped", value: "top cropped transpassado" },
                     { id: "bralette_crop_top", label: "Bralette", value: "bralette" },
                 ]
             },
@@ -89,39 +87,19 @@ export const CLOTHING_CATEGORIES = {
                 id: 'casual',
                 label: 'Casual',
                 items: [
-                    { id: "tshirt", label: "T-Shirt Babylook", value: "camiseta ajustada" },
-                    { id: "oversized_tee", label: "T-Shirt Oversized", value: "camiseta oversized" },
-                    { id: "reagata_tshirt", label: "Alcinha (Seda/Cetim)", value: "regata de alcinha de seda", defaultNeckline: "Plunging neckline" },
-                    { id: "bodysuit", label: "Body", value: "body" },
-                ]
-            },
-            {
-                id: 'formal',
-                label: 'Social',
-                items: [
-                    { id: "button_shirt_social", label: "Camisa Social", value: "camisa social" },
-                    { id: "blouse_silk_social", label: "Blusa de Seda", value: "blusa de seda" },
-                    { id: "blazer_open_social", label: "Blazer (Aberto)", value: "blazer aberto" },
-                    { id: "turtleneck_social", label: "Gola Alta Justa", value: "blusa gola alta justa" },
-                ]
-            },
-            {
-                id: 'sporty',
-                label: 'Esportivo',
-                items: [
-                    { id: "sports_bra", label: "Top Esportivo", value: "top esportivo" },
-                    { id: "hoodie_cropped", label: "Hoodie Cropped", value: "moletom cropped" },
-                    { id: "zip_up_jacket", label: "Jaqueta com Zíper", value: "jaqueta esportiva com zíper" },
+                    { id: "babylook_casual", label: "T-Shirt Babylook", value: "camiseta ajustada" },
+                    { id: "oversized_casual", label: "T-Shirt Oversized", value: "camiseta oversized" },
+                    { id: "reagata_casual", label: "Alcinha", value: "regata de alcinha" },
                 ]
             },
             {
                 id: 'gothic',
                 label: 'Gótico',
                 items: [
-                    { id: "gothic_top", label: "Top Gótico", value: "top gótico" },
-                    { id: "lace_corset", label: "Corpete de Renda", value: "corpete de renda" },
-                    { id: "fishnet_top", label: "Top de Arrastão", value: "top de arrastão" },
-                    { id: "band_tee", label: "Camiseta de Banda", value: "camiseta de banda vintage" },
+                    { id: "goth_top", label: "Top Gótico", value: "top gótico" },
+                    { id: "goth_lace_corset", label: "Corpete de Renda", value: "corpete de renda" },
+                    { id: "goth_fishnet_top", label: "Top de Arrastão", value: "top de arrastão" },
+                    { id: "goth_band_tee", label: "Camiseta de Banda", value: "camiseta de banda vintage" },
                 ]
             }
         ]
@@ -271,7 +249,6 @@ export const CLOTHING_CATEGORIES = {
                 id: 'christmas',
                 label: 'Natalinas',
                 items: [
-                    { id: "christmas_sweater", label: "Pullover de Natal", value: "pullover de natal" },
                     { id: "sensual_santa_dress", label: "Vestido de Mamae Noel Sensual", value: "Vestido de Mamãe Noel em veludo carmesim justo, acabamento em pele branca felpuda, minissaia evasê e cinto de couro com fivela dourada." },
                     { id: "sensual_gothic_santa_dress", label: "Vestido de mamãe noel gótica sensual", value: "Vestido de Mamãe Noel gótica em veludo preto meia-noite, minissaia em camadas de tule, corpete de renda ajustado com cadarços de cetim, acabamento de pele sintética cinza escuro e detalhes em prata envelhecida" },
                 ]
@@ -404,7 +381,8 @@ export const SCENERY_CATEGORIES = [
 ];
 export const SCENERY = SCENERY_CATEGORIES.flatMap(c => c.items);
 
-// Attributes
+// Attributes 
+/*
 export const FABRICS = [
     { id: "cotton", label: "Algodão", value: "algodão" },
     { id: "silk", label: "Seda", value: "seda" },
@@ -416,7 +394,7 @@ export const FABRICS = [
     { id: "lace", label: "Renda", value: "renda" },
     { id: "spandex", label: "Spandex", value: "spandex" },
     { id: "fur", label: "Pele (Fake)", value: "pele falsa" },
-];
+]; */
 
 export const NECKLINES = [
     { id: "hard_plunging", label: "Decote Profundo", value: "plunging neckline" }, // plunging neckline

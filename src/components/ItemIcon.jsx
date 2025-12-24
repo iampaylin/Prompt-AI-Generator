@@ -22,6 +22,8 @@ import {
   Droplet,
 } from "lucide-react";
 
+import { skirt } from "@lucide/lab";
+
 const ItemIcon = ({ id, color = "var(--text-secondary)", size = 40 }) => {
   // Helper to match partial IDs
   const match = (term) => id.includes(term);
@@ -34,7 +36,7 @@ const ItemIcon = ({ id, color = "var(--text-secondary)", size = 40 }) => {
   else if (match("social")) Icon = Briefcase; // Formal
   else if (match("camisole") || match("bodysuit")) Icon = Heart;
   // BOTTOMS
-  else if (match("skirt")) Icon = Circle; // Triangular shape
+  else if (match("skirt")) Icon = Circle; // Skirt
   else if (match("short")) Icon = Scissors;
   else if (match("jeans") || match("pants") || match("leg")) Icon = Scissors;
   // DRESSES

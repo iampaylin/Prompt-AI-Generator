@@ -1,13 +1,27 @@
 :root {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-color: #38bdf8;
-  --accent-hover: #0ea5e9;
-  --border-color: #334155;
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Pastel Pink Theme */
+  --bg-primary: #fdf2f8;
+  /* Very light pink background */
+  --bg-secondary: #ffffff;
+  /* White cards */
+  --text-primary: #374151;
+  /* Slate 700 - Soft Dark Gray */
+  --text-secondary: #6b7280;
+  /* Slate 500 - Medium Gray */
+
+  --accent-color: #f472b6;
+  /* Pink 400 - Nice Pastel Pink */
+  --accent-hover: #ec4899;
+  /* Pink 500 */
+
+  --border-color: #fbcfe8;
+  /* Pink 200 - Soft Border */
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  /* White Glass */
+  --glass-border: rgba(244, 114, 182, 0.2);
+  /* Pinkish Border */
+
   --font-family: 'Inter', system-ui, sans-serif;
 }
 
@@ -32,4 +46,23 @@ h5,
 h6 {
   margin: 0;
   font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Scrollbar styling for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
 }

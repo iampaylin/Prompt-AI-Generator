@@ -1,7 +1,6 @@
 import React from "react";
-import { FABRICS, NECKLINES, COLORS } from "../data/options";
+import { NECKLINES, COLOR_GROUPS } from "../data/options";
 import { usePrompt } from "../context/PromptContext";
-import ColorSelector from "./ColorSelector";
 
 const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
   // We use the context to get "selections" for Scenery toggles
@@ -13,8 +12,14 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
     return (
       <div style={panelStyle}>
         <h3>Customize Scenery</h3>
-        <p style={{ color: "var(--text-secondary)", marginBottom: "1rem" }}>
-          {currentSelection.description}
+        <p
+          style={{
+            color: "var(--text-secondary)",
+            marginBottom: "1rem",
+            fontSize: "0.9rem",
+          }}
+        >
+          {currentSelection.description || currentSelection.value}
         </p>
 
         <label
@@ -29,7 +34,11 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
             type="checkbox"
             checked={selections.bokeh || false}
             onChange={(e) => updateSelection("bokeh", e.target.checked)}
-            style={{ width: "18px", height: "18px" }}
+            style={{
+              width: "18px",
+              height: "18px",
+              accentColor: "var(--accent-color)",
+            }}
           />
           <span style={{ color: "var(--text-primary)" }}>
             Bokeh (Desfocar fundo)
@@ -42,52 +51,93 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
   // CLOTHING MODE
   if (!currentSelection || !currentSelection.item) return null;
 
-  const { item, fabric, color, neckline } = currentSelection;
+  const { item, color, neckline } = currentSelection;
 
   return (
     <div style={panelStyle}>
       <h3
         style={{
-          marginBottom: "1rem",
-          fontSize: "1rem",
+          marginBottom: "1.5rem",
+          fontSize: "1.1rem",
           color: "var(--text-primary)",
+          borderBottom: "1px solid var(--border-color)",
+          paddingBottom: "0.5rem",
         }}
       >
         Customize {item.label}
       </h3>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        {/* COLORS */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+        {/* COLORS (Grouped) */}
         <div>
           <label style={labelStyle}>Color</label>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-            {COLORS.map((c) => (
-              <div
-                key={c.id}
-                onClick={() => onUpdate("color", c)}
-                title={c.label}
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "50%",
-                  background: c.hex,
-                  cursor: "pointer",
-                  border:
-                    color?.id === c.id
-                      ? "2px solid #fff"
-                      : "2px solid transparent",
-                  boxShadow:
-                    color?.id === c.id
-                      ? "0 0 0 2px var(--accent-color)"
-                      : "none",
-                  transition: "all 0.2s",
-                }}
-              />
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+          >
+            {COLOR_GROUPS.map((group) => (
+              <div key={group.id}>
+                <h4
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "var(--text-secondary)",
+                    marginBottom: "0.5rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  {group.label}
+                </h4>
+                <div
+                  style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}
+                >
+                  {group.colors.map((c) => (
+                    <div
+                      key={c.id}
+                      onClick={() => onUpdate("color", c)}
+                      title={c.label}
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        background: c.hex,
+                        cursor: "pointer",
+                        border:
+                          color?.id === c.id
+                            ? "2px solid #fff"
+                            : "1px solid rgba(0,0,0,0.1)",
+                        boxShadow:
+                          color?.id === c.id
+                            ? "0 0 0 2px var(--accent-color)"
+                            : "none",
+                        transition: "all 0.2s",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Checkmark for active color (optional visual cue) */}
+                      {color?.id === c.id && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            inset: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: c.id === "white" ? "#000" : "#fff",
+                            fontSize: "10px",
+                          }}
+                        >
+                          ✓
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* FABRICS */}
+        {/* FABRICS 
         <div>
           <label style={labelStyle}>Fabric</label>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
@@ -101,9 +151,9 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
               </button>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        {/* NECKLINES - Only for Top/Dress */}
+        {/* NECKLINES - Only for Top/Dress/Fantasies */}
         {(itemType === "top" ||
           itemType === "dress" ||
           itemType === "fantasies") && (
@@ -134,25 +184,28 @@ const panelStyle = {
   background: "var(--bg-secondary)",
   borderRadius: "16px",
   border: "1px solid var(--border-color)",
+  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
 };
 
 const labelStyle = {
   display: "block",
-  marginBottom: "0.5rem",
-  fontSize: "0.85rem",
-  color: "var(--text-secondary)",
+  marginBottom: "0.8rem",
+  fontSize: "0.9rem",
+  fontWeight: "600",
+  color: "var(--text-primary)",
 };
 
 const getBtnStyle = (isActive) => ({
-  padding: "0.4rem 0.8rem",
-  fontSize: "0.8rem",
-  borderRadius: "6px",
+  padding: "0.5rem 1rem",
+  fontSize: "0.85rem",
+  borderRadius: "8px",
   border: "1px solid",
   borderColor: isActive ? "var(--accent-color)" : "var(--border-color)",
-  background: isActive ? "rgba(56, 189, 248, 0.1)" : "transparent",
-  color: isActive ? "var(--accent-color)" : "var(--text-secondary)",
+  background: isActive ? "var(--accent-color)" : "transparent",
+  color: isActive ? "#fff" : "var(--text-secondary)",
   cursor: "pointer",
   transition: "all 0.2s",
+  fontWeight: isActive ? "600" : "400",
 });
 
 export default ConfigPanel;
