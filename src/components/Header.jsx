@@ -33,9 +33,9 @@ const Header = () => {
           >
             Closet AI [BETA]
           </h1>
-          <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
+          {/* <span style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
             Your wardrobe, reimagined by AI
-          </span>
+          </span> */}
         </div>
       </div>
       {/* <div style={{ marginLeft: "auto", display: "flex", gap: "1rem" }}>

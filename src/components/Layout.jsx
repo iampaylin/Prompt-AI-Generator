@@ -14,10 +14,10 @@ const Layout = ({ children }) => {
       <Header />
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
         {/* Prompt is now at the top for better visibility */}
-        {children}
-        <div style={{ marginTop: "2rem" }}>
+        <div style={{ marginBottom: "2rem" }}>
           <PromptPreview />
         </div>
+        {children}
       </div>
     </div>
   );

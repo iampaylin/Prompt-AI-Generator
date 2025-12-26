@@ -11,7 +11,7 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
     if (!currentSelection) return null;
     return (
       <div style={panelStyle}>
-        <h3>Customize Scenery</h3>
+        <h3>Cenário</h3>
         <p
           style={{
             color: "var(--text-secondary)",
@@ -64,7 +64,7 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
           paddingBottom: "0.5rem",
         }}
       >
-        Customize {item.label}
+        Customização {item.label}
       </h3>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
@@ -157,21 +157,21 @@ const ConfigPanel = ({ itemType, currentSelection, onUpdate }) => {
         {(itemType === "top" ||
           itemType === "dress" ||
           itemType === "fantasies") && (
-          <div>
-            <label style={labelStyle}>Neckline</label>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-              {NECKLINES.map((n) => (
-                <button
-                  key={n.id}
-                  onClick={() => onUpdate("neckline", n)}
-                  style={getBtnStyle(neckline?.id === n.id)}
-                >
-                  {n.label}
-                </button>
-              ))}
+            <div>
+              <label style={labelStyle}>Neckline</label>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                {NECKLINES.map((n) => (
+                  <button
+                    key={n.id}
+                    onClick={() => onUpdate("neckline", n)}
+                    style={getBtnStyle(neckline?.id === n.id)}
+                  >
+                    {n.label}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
     </div>
   );

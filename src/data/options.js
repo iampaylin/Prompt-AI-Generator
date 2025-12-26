@@ -45,16 +45,6 @@ export const COLOR_GROUPS = [
         ]
     },
     {
-        id: 'neon',
-        label: 'Neons',
-        colors: [
-            { id: "neon_green", label: "Neon Green", value: "verde neon", hex: "#39FF14" },
-            { id: "neon_pink", label: "Neon Pink", value: "rosa neon", hex: "#FF10F0" },
-            { id: "neon_orange", label: "Neon Orange", value: "laranja neon", hex: "#FF5F1F" },
-            { id: "electric_blue", label: "Elétrico", value: "azul elétrico", hex: "#7DF9FF" },
-        ]
-    },
-    {
         id: 'metallic',
         label: 'Metálicos',
         colors: [
@@ -96,10 +86,10 @@ export const CLOTHING_CATEGORIES = {
                 id: 'gothic',
                 label: 'Gótico',
                 items: [
-                    { id: "goth_top", label: "Top Gótico", value: "top gótico" },
-                    { id: "goth_lace_corset", label: "Corpete de Renda", value: "corpete de renda" },
-                    { id: "goth_fishnet_top", label: "Top de Arrastão", value: "top de arrastão" },
-                    { id: "goth_band_tee", label: "Camiseta de Banda", value: "camiseta de banda vintage" },
+                    { id: "goth_croptop", label: "Top Gótico", value: "top cropped gótico" },
+                    { id: "goth_lace_corset", label: "Corpete de Renda", value: "corpete de renda gótico" },
+                    { id: "goth_fishnet_croptop", label: "Top de Arrastão", value: "top cropped de arrastão gótico" },
+                    { id: "goth_band_tee", label: "Camiseta de Banda", value: "camiseta de banda vintage gótico" },
                 ]
             }
         ]
@@ -111,35 +101,23 @@ export const CLOTHING_CATEGORIES = {
             {
                 id: 'skirts',
                 label: 'Saias',
-                groups: [
-                    { id: 'mini', label: 'Mini' },
-                    { id: 'midi', label: 'Midi' },
-                    { id: 'maxi', label: 'Maxi' }
-                ],
+
                 items: [
-                    { id: "micro_skirt", label: "Micro Saia", value: "mini saia", group: 'mini', description: "Curta" },
-                    { id: "pleated_mini", label: "Plissada (Tennis)", value: "saia plissada curta", group: 'mini' },
-                    { id: "leather_mini", label: "Mini de Couro", value: "mini saia de couro", group: 'mini' },
-                    { id: "cargo_mini", label: "Mini Cargo", value: "mini saia cargo", group: 'mini' },
-                    { id: "denim_mini", label: "Mini Jeans", value: "mini saia jeans", group: 'mini' },
-
-                    { id: "pencil_skirt", label: "Saia Lápis", value: "saia lápis", group: 'midi' },
-                    { id: "slip_skirt", label: "Saia Satin (Slip)", value: "saia de cetim", group: 'midi' },
-                    { id: "a_line_midi", label: "Evasê / A-Line", value: "saia evasê midi", group: 'midi' },
-
-                    { id: "boho_skirt", label: "Saia Boho", value: "saia longa boho", group: 'maxi' },
-                    { id: "slit_maxi", label: "Longa com Fenda", value: "saia longa com fenda alta", group: 'maxi' },
-                    { id: "denim_maxi", label: "Longa Jeans", value: "saia jeans longa", group: 'maxi' },
+                    { id: "asymmetrical_mini_skirt", label: "Saia Asimétrica", value: "Mini Asymmetric Skirt" },
+                    { id: "a-line_mini_skirt", label: "Saia A-Line", value: "Mini A-Line Skirt" },
+                    { id: "pencil_mini_skirt", label: "Saia Lápis", value: "Mini Pencil Skirt" },
+                    { id: "cargo_mini_skirt", label: "Saia Cargo", value: "Mini Cargo Skirt" },
+                    { id: "pleated_mini_skirt", label: "Saia Plegada", value: "Mini Pleated Skirt" },
+                    { id: "godet_mini_skirt", label: "Saia Godet", value: "Mini Godet Skirt" },
                 ]
             },
             {
                 id: 'shorts',
                 label: 'Shorts',
                 items: [
-                    { id: "hot_pants", label: "Hot Pants", value: "short cintura alta", description: "Cintura alta" },
+                    { id: "hot_pants", label: "Hot Pants", value: "short hot pants", description: "Cintura alta" },
                     { id: "denim_shorts", label: "Short Jeans Destroyed", value: "short jeans destroyed" },
-                    { id: "biker", label: "Biker (Ciclista)", value: "short de ciclista" },
-                    { id: "tailored_short", label: "Short Alfaiataria", value: "short de alfaiataria" },
+                    { id: "tailored_shorts", label: "Short Alfaiataria", value: "short de alfaiataria" },
                     { id: "leather_shorts", label: "Short de Couro", value: "short de couro" },
                 ]
             },
@@ -157,8 +135,7 @@ export const CLOTHING_CATEGORIES = {
                 id: 'leggings',
                 label: 'Leggings',
                 items: [
-                    { id: "high_waist_leggings", label: "Cintura Alta", value: "legging cintura alta" },
-                    { id: "mesh_leggings", label: "Com Tela", value: "legging com tela" },
+                    { id: "low_waist_leggings", label: "Cintura Baixa", value: "legging cintura baixa" },
                     { id: "leather_leggings", label: "De Couro", value: "legging de couro" },
                 ]
             },
@@ -166,14 +143,13 @@ export const CLOTHING_CATEGORIES = {
                 id: 'gothic_bottoms',
                 label: 'Gótico',
                 items: [
-                    { id: "gothic_skirt", label: "Saia Gótica", value: "saia gótica" },
-                    { id: "fishnet_leggings", label: "Legging de Arrastão", value: "legging de arrastão" },
-                    { id: "lace_up_pants", label: "Calça com Amarração", value: "calça com amarração" },
-                    { id: "platform_pants", label: "Calça Plataforma", value: "calça plataforma" },
-                    { id: "gothic_shorts", label: "Shorts Gótico", value: "shorts gótico" },
-                    { id: "corset_skirt", label: "Saia Corset", value: "saia estilo corset" },
-                    { id: "leather_gothic_skirt", label: "Saia de Couro", value: "saia gótica de couro" },
-                    { id: "pleated_gothic_skirt", label: "Plissada Gótica", value: "saia plissada gótica" },
+                    { id: "goth_skirt", label: "Saia Gótica", value: "saia gótica" },
+                    { id: "goth_lace_up_pants", label: "Calça com Amarração", value: "calça com amarração gótica" },
+                    { id: "goth_platform_pants", label: "Calça Plataforma", value: "calça plataforma gótica" },
+                    { id: "goth_shorts", label: "Shorts Gótico", value: "shorts gótico" },
+                    { id: "goth_corset_skirt", label: "Saia Corset", value: "saia estilo corset gótica" },
+                    { id: "goth_leather_skirt", label: "Saia de Couro", value: "saia gótica de couro" },
+                    { id: "goth_pleated_skirt", label: "Plissada Gótica", value: "saia plissada gótica" },
                 ]
             }
         ]
@@ -184,7 +160,7 @@ export const CLOTHING_CATEGORIES = {
         subcategories: [
             {
                 id: 'sets',
-                label: 'Conjuntos',
+                label: 'Biquínis',
                 items: [
                     { id: "micro_bikini", label: "Micro Biquíni", value: "micro biquíni" },
                     { id: "triangle_bikini", label: "Cortininha", value: "biquíni cortininha" },
@@ -192,16 +168,6 @@ export const CLOTHING_CATEGORIES = {
                     { id: "thong_bikini", label: "Fio Dental", value: "biquíni cavado" }, // Safe PT term
                 ]
             },
-            {
-                id: 'one_piece',
-                label: 'Maiôs',
-                items: [
-                    { id: "cutout_swimsuit", label: "Recortes", value: "maiô com recortes" },
-                    { id: "plunge_swimsuit", label: "Decote Profundo", value: "maiô com decote profundo" },
-                    { id: "classic_swimsuit", label: "Clássico", value: "maiô clássico" },
-                    { id: "high_leg_swimsuit", label: "Cavado", value: "maiô cavado" },
-                ]
-            }
         ]
     },
     dresses: {
@@ -212,31 +178,19 @@ export const CLOTHING_CATEGORIES = {
                 id: 'mini_dress',
                 label: 'Curtos (Mini)',
                 items: [
-                    { id: "bodycon_mini", label: "Tubinho Justo", value: "vestido tubinho curto" },
-                    { id: "slip_mini", label: "Alcinha (Slip)", value: "vestido de alcinha curto" },
-                    { id: "wrap_mini", label: "Envelope Curto", value: "vestido envelope curto" },
-                    { id: "cutout_mini", label: "Recortes", value: "vestido curto com recortes" },
-                    { id: "latext_mini", label: "Látex Justo", value: "vestido de látex curto" },
-                ]
-            },
-            {
-                id: 'midi_maxi',
-                label: 'Longos / Midi',
-                items: [
-                    { id: "slit_gown", label: "Longo com Fenda", value: "vestido longo com fenda" },
-                    { id: "sundress_maxi", label: "Longo Fluido", value: "vestido longo fluido" },
-                    { id: "mermaid_dress", label: "Sereia", value: "vestido sereia" },
-                    { id: "midi_bodycon", label: "Midi Justo", value: "vestido midi justo" },
-                    { id: "backless_gown", label: "Costas Nuas", value: "vestido longo costas nuas" },
+                    { id: "bodycon_mini", label: "Tubinho", value: "mini vestido tubinho" },
+                    { id: "slip_mini", label: "Alcinha", value: "mini vestido de alcinha" },
+                    { id: "wrap_mini", label: "Envelope", value: "mini vestido envelope" },
+                    { id: "latext_mini", label: "Látex", value: "mini vestido de látex" },
                 ]
             },
             {
                 id: 'jumpsuits',
                 label: 'Macacões',
                 items: [
-                    { id: "denim_jumpsuit", label: "Macacão Jeans", value: "macacão jeans" },
-                    { id: "formal_jumpsuit", label: "Macacão Social", value: "macacão social" },
-                    { id: "casual_jumpsuit", label: "Macacão Casual", value: "macacão casual" },
+                    { id: "denim_jumpsuit", label: "Macacão Jeans", value: "mini macacão jeans" },
+                    { id: "formal_jumpsuit", label: "Macacão Social", value: "mini macacão social" },
+                    { id: "casual_jumpsuit", label: "Macacão Casual", value: "mini macacão casual" },
                 ]
             },
         ]
@@ -249,7 +203,7 @@ export const CLOTHING_CATEGORIES = {
                 id: 'christmas',
                 label: 'Natalinas',
                 items: [
-                    { id: "sensual_santa_dress", label: "Vestido de Mamae Noel Sensual", value: "Vestido de Mamãe Noel em veludo carmesim justo, acabamento em pele branca felpuda, minissaia evasê e cinto de couro com fivela dourada." },
+                    { id: "sensual_santa_dress", label: "Vestido de Mamae Noel Sensual", value: "Vestido ultracurto de veludo vermelho, bem ajustado ao corpo, decote em V amplo, acabamento em pelúcia branca, cintura marcada com cinto fino preto, gorro clássico de Mamãe Noel.Meias 7/8 lisas e botas pretas de salto médio, visual natalino elegante, confiante e sedutor, iluminação suave e realista." },
                     { id: "sensual_gothic_santa_dress", label: "Vestido de mamãe noel gótica sensual", value: "Vestido de Mamãe Noel gótica em veludo preto meia-noite, minissaia em camadas de tule, corpete de renda ajustado com cadarços de cetim, acabamento de pele sintética cinza escuro e detalhes em prata envelhecida" },
                 ]
             },

@@ -24,14 +24,14 @@ const CLOTHING_ITEMS = [
   { id: "top", label: "Parte de cima", icon: Shirt },
   { id: "bottom", label: "Parte de baixo", icon: Layers },
   { id: "dress", label: "Vestidos", icon: Heart },
-  { id: "fantasies", label: "Fantasies", icon: Sparkles },
-  { id: "bikinis", label: "Bikinis", icon: Sparkles }, // Updated icon
-  { id: "shoes", label: "Shoes", icon: Grid },
+  { id: "fantasies", label: "Fantasias", icon: Sparkles },
+  { id: "bikinis", label: "Biquinis", icon: Sparkles }, // Updated icon
+  { id: "shoes", label: "Sapatos", icon: Grid },
 ];
 
 const ENVIRONMENT_ITEMS = [
-  { id: "scenery", label: "Scenery", icon: ImageIcon },
-  { id: "pose", label: "Pose", icon: UserIcon },
+  { id: "scenery", label: "Cenário", icon: ImageIcon },
+  { id: "pose", label: "Posição", icon: UserIcon },
 ];
 
 const MainSelector = () => {
@@ -54,10 +54,10 @@ const MainSelector = () => {
         activeCategory === "dress"
           ? "dresses"
           : activeCategory === "fantasies"
-          ? "fantasies"
-          : activeCategory === "bikinis"
-          ? "bikinis"
-          : activeCategory + "s";
+            ? "fantasies"
+            : activeCategory === "bikinis"
+              ? "bikinis"
+              : activeCategory + "s";
       categoryData = CLOTHING_CATEGORIES[key];
     }
 
@@ -93,10 +93,10 @@ const MainSelector = () => {
         activeCategory === "dress"
           ? "dresses"
           : activeCategory === "fantasies"
-          ? "fantasies"
-          : activeCategory === "bikinis"
-          ? "bikinis"
-          : activeCategory + "s";
+            ? "fantasies"
+            : activeCategory === "bikinis"
+              ? "bikinis"
+              : activeCategory + "s";
       categoryData = CLOTHING_CATEGORIES[key];
     }
 
@@ -144,7 +144,7 @@ const MainSelector = () => {
       }}
     >
       {/* CLOTHING SECTION */}
-      <h3 style={sectionHeaderStyle}>Wardrobe</h3>
+      <h3 style={sectionHeaderStyle}>Closet</h3>
       {CLOTHING_ITEMS.map((item) => {
         const Icon = item.icon;
         return (
@@ -160,7 +160,7 @@ const MainSelector = () => {
       })}
 
       {/* ENVIRONMENT SECTION */}
-      <h3 style={{ ...sectionHeaderStyle, marginTop: "1.5rem" }}>Studio</h3>
+      <h3 style={{ ...sectionHeaderStyle, marginTop: "1.5rem" }}>Estúdio</h3>
       {ENVIRONMENT_ITEMS.map((item) => {
         const Icon = item.icon;
         return (
@@ -199,7 +199,7 @@ const MainSelector = () => {
             fontWeight: "600",
           }}
         >
-          <RotateCcw size={16} /> Clear All
+          <RotateCcw size={16} /> Limpar tudo
         </button>
       </div>
     </div>
@@ -273,12 +273,12 @@ const MainSelector = () => {
       activeCategory === "dress"
         ? "dresses"
         : activeCategory === "bikinis"
-        ? "bikinis"
-        : activeCategory === "fantasies"
-        ? "fantasies"
-        : activeCategory === "shoes"
-        ? "shoes"
-        : activeCategory + "s";
+          ? "bikinis"
+          : activeCategory === "fantasies"
+            ? "fantasies"
+            : activeCategory === "shoes"
+              ? "shoes"
+              : activeCategory + "s";
 
     const categoryData = CLOTHING_CATEGORIES[dataKey];
 
@@ -424,7 +424,7 @@ const MainSelector = () => {
         }}
       >
         <h3 style={{ ...sectionHeaderStyle, marginBottom: "1rem" }}>
-          Active Preview
+          Preview do item
         </h3>
 
         <div
@@ -446,7 +446,7 @@ const MainSelector = () => {
             <>
               {/* Placeholder logic: You can map currentItem.id to real paths here later */}
               <img
-                src={`/public/clothes/${currentItem.id}.jpg`}
+                src={`public/clothes/${currentItem.id}.jpg`}
                 alt={currentItem.label}
                 onError={(e) => {
                   e.target.onerror = null;
@@ -455,22 +455,6 @@ const MainSelector = () => {
                 }}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: "1rem",
-                  /* background:
-                    "linear-gradient(to top, rgba(0,0,0,0.6), transparent)", */
-                  color: "white",
-                }}
-              >
-                {/* <p style={{ fontWeight: "600", fontSize: "0.95rem" }}>
-                  {currentItem.label}
-                </p> */}
-              </div>
             </>
           ) : (
             <div
@@ -482,13 +466,13 @@ const MainSelector = () => {
             >
               <p>No item selected</p>
               <p style={{ fontSize: "0.8rem", marginTop: "0.5rem" }}>
-                Select an item to see details
+                Selecione um item para ver detalhes
               </p>
             </div>
           )}
         </div>
 
-        <div style={{ marginTop: "1.5rem" }}>
+        {/* <div style={{ marginTop: "1.5rem" }}>
           <h4 style={{ fontSize: "0.9rem", marginBottom: "0.5rem" }}>
             Instructions
           </h4>
@@ -502,7 +486,7 @@ const MainSelector = () => {
             Place your images in <code>public/images/</code> named as{" "}
             <code>[id].jpg</code> to see them here.
           </p>
-        </div>
+          </div> */}
       </div>
     );
   };

@@ -40,7 +40,7 @@ const PromptPreview = () => {
             letterSpacing: "0.05em",
           }}
         >
-          Generated Prompt
+          Prompt final
         </span>
         <button
           onClick={handleCopy}
